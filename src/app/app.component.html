@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="app">
+    <app-search-list (dataEvent)="receiveCustomData($event)"></app-search-list>
+    <app-search [voted]="'Cabral'">
+      <p style="background-color: aquamarine">{{ msg }}</p>
+      Children content
+    </app-search>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
