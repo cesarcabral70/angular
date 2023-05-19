@@ -1,4 +1,4 @@
-import { AfterContentInit, Component, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, Input, ViewChild } from '@angular/core';
 import { SearchListComponent } from './search-list/search-list.component';
 
 @Component({
@@ -8,13 +8,13 @@ import { SearchListComponent } from './search-list/search-list.component';
 })
 export class AppComponent implements AfterContentInit {
   @ViewChild(SearchListComponent) child: any;
-  msg = 'search-movie';
+  @Input() msg: string = 'not implemented';
 
   receiveCustomData($event: any) {
     this.msg = $event;
   }
 
   ngAfterContentInit(): void {
-    this.msg = this.child.cabralada;
+    // this.msg = 'this.child.cabralada';
   }
 }

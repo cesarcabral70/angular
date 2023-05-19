@@ -11,7 +11,7 @@ export class SearchListComponent {
 
   constructor() {
     this.cabralada = 'Diana';
-    console.log(this.cabralada, 'SearchListComponent');
+    // console.log(this.cabralada, 'SearchListComponent');
   }
 
   sendData() {
