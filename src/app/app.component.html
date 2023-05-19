@@ -1,9 +1,7 @@
 <div class="container">
   <div class="app">
     <app-search (dataEvent)="receiveCustomData($event)">
-      <p style="background-color: yellow">
-        {{ msg }}
-      </p>
+      <p style="background-color: yellow">share data: {{ msg }}</p>
     </app-search>
     <app-search-list
       (dataPokemonEvent)="receivePokemonData($event)"

@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
-import { SearchComponent } from '../search/search.component';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-search-list',
@@ -27,8 +20,8 @@ export class SearchListComponent {
   }
 
   sendData() {
-    this.dataEvent.emit(this.cabralada);
-    // this.dataEvent.emit(this.data);
+    // this.dataEvent.emit(this.cabralada);
+    this.dataEvent.emit(this.data);
   }
 
   ngOnInit(): void {

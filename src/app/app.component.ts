@@ -1,14 +1,5 @@
-import {
-  AfterContentInit,
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-  ViewChildren,
-} from '@angular/core';
+import { AfterContentInit, Component, Input, ViewChild } from '@angular/core';
 import { SearchListComponent } from './search-list/search-list.component';
-import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +8,7 @@ import { SearchComponent } from './search/search.component';
 })
 export class AppComponent implements AfterContentInit {
   @ViewChild(SearchListComponent) child: any;
-  @Input() msg: string = 'not implemented';
+  @Input() msg: string = '{msg} not implemented';
   // @ViewChild(SearchComponent) child: any;
   // @ViewChildren('cmp') components: QueryList<SearchComponent>;
 
@@ -56,6 +47,6 @@ export class AppComponent implements AfterContentInit {
   }
 
   ngAfterContentInit(): void {
-    // this.msg = 'this.child.cabralada';
+    this.msg = this.child.cabralada;
   }
 }
