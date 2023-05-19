@@ -1,13 +1,14 @@
 <div class="container">
   <div class="app">
+    <app-search-list
+      [dataResults]="Pokemons"
+      [pokemonArray]="pokemonDataArray"
+      (dataPokemonEvent)="receivePokemonData($event)"
+    ></app-search-list>
+
     <app-search (dataEvent)="receiveCustomData($event)">
       <p style="background-color: yellow">share data: {{ msg }}</p>
     </app-search>
-    <app-search-list
-      (dataPokemonEvent)="receivePokemonData($event)"
-      [dataResults]="Pokemons"
-      [pokemonArray]="pokemonDataArray"
-    ></app-search-list>
   </div>
 </div>
 

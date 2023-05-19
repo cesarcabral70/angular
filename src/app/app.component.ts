@@ -1,21 +1,20 @@
-import { AfterContentInit, Component, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, ViewChild } from '@angular/core';
 import { SearchListComponent } from './search-list/search-list.component';
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements AfterContentInit {
-  @ViewChild(SearchListComponent) child: any;
+export class AppComponent implements AfterViewInit {
+  @ViewChild(SearchListComponent) dataSearchList: any;
+  @ViewChild(SearchComponent) dataSearch: any;
   @Input() msg: string = '{msg} not implemented';
-  // @ViewChild(SearchComponent) child: any;
-  // @ViewChildren('cmp') components: QueryList<SearchComponent>;
 
   @Input() data: any = 'not implemented';
   @Input() newData: any = 'not implemented';
-
-  pokemonDataArray = [];
+  @Input() pokemonDataArray: Object[] = [];
 
   Pokemons = [
     {
@@ -34,6 +33,11 @@ export class AppComponent implements AfterContentInit {
 
   constructor() {}
 
+  ngAfterViewInit(): void {
+    this.msg = this.dataSearchList.cabralada;
+    this.pokemonDataArray = this.dataSearch.PokemonsNew;
+  }
+
   receiveCustomData($event: any) {
     this.msg = $event;
     alert('oi');
@@ -44,9 +48,5 @@ export class AppComponent implements AfterContentInit {
     console.log('receivePokemonData');
     alert('OI');
     this.pokemonDataArray = $event;
-  }
-
-  ngAfterContentInit(): void {
-    this.msg = this.child.cabralada;
   }
 }
