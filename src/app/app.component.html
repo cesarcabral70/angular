@@ -1,10 +1,15 @@
 <div class="container">
   <div class="app">
-    <app-search-list (dataEvent)="receiveCustomData($event)"></app-search-list>
-    <app-search [voted]="'Cabral'">
-      <p style="background-color: aquamarine">{{ msg }}</p>
-      Children content
+    <app-search (dataEvent)="receiveCustomData($event)">
+      <p style="background-color: yellow">
+        {{ msg }}
+      </p>
     </app-search>
+    <app-search-list
+      (dataPokemonEvent)="receivePokemonData($event)"
+      [dataResults]="Pokemons"
+      [pokemonArray]="pokemonDataArray"
+    ></app-search-list>
   </div>
 </div>
 

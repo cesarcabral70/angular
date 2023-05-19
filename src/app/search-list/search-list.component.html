@@ -1,2 +1,15 @@
-<p>search-list works!</p>
-<strong>{{ cabralada }}</strong>
+<strong>Cabralada: {{ cabralada }}</strong>
+<ul *ngFor="let result of dataResults">
+  <li>
+    <h1>{{ result.name }}</h1>
+    <strong>Cabralada: {{ result }}</strong>
+  </li>
+</ul>
+<div>
+  <ul>
+    <li>NOVA LISTA</li>
+    <li *ngFor="let pokemon of pokemonArray">
+      <h1>{{ pokemon.name }}</h1>
+    </li>
+  </ul>
+</div>
