@@ -1,4 +1,11 @@
-import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  AfterViewInit,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -6,7 +13,29 @@ import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
-  @Input() voted: string = 'not implemented';
+  @Input() data: string = 'not implemented';
+  @Output() dataPokemonEvent = new EventEmitter<any>();
+
+  PokemonsNew = [
+    {
+      name: 'Cabral',
+    },
+    {
+      name: 'Diana',
+    },
+    {
+      name: 'Henrique',
+    },
+  ];
+
+  sendPokemonData() {
+    this.dataPokemonEvent.emit(this.PokemonsNew);
+    console.log('sendPokemonData');
+  }
 
   constructor() {}
+
+  ngOnInit(): void {
+    this.sendPokemonData();
+  }
 }
