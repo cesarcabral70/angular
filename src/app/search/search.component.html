@@ -1,1 +1,23 @@
-<ng-content></ng-content>
+<div class="searchApp">
+  <form
+    (submit)="clickme()"
+    [ngClass]="{ errorForm: errorSearch }"
+    class="searchform"
+  >
+    <input
+      type="text"
+      id="searchItem"
+      name="searchItem"
+      [(ngModel)]="searchItem"
+    />
+    <button type="submit">Search</button>
+  </form>
+
+  <div class="success" *ngIf="searchItem.length > 0 && !errorSearch">
+    Searched for: <strong>{{ searchItem }} </strong>
+  </div>
+
+  <div class="error" *ngIf="errorSearch">
+    Pokemon <strong>{{ searchItem }} </strong> dosent exist
+  </div>
+</div>

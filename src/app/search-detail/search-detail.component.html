@@ -1,1 +1,26 @@
-<p>search-detail works!</p>
+<div>
+  <div *ngIf="show" class="card">
+    <h2 class="name">{{ pokemonDetail.name }}</h2>
+    <img src="{{ pokemonDetail.sprites.other.dream_world.front_default }}" />
+
+    <div>
+      <ul class="basic">
+        <li><strong>Height:</strong> {{ pokemonDetail.height * 10 }} cm</li>
+        <li><strong>Weight:</strong> {{ pokemonDetail.weight / 10 }} kg</li>
+      </ul>
+
+      <ul class="type">
+        <li *ngFor="let type of pokemonDetail.types">
+          <strong>{{ type.type.name }}</strong>
+        </li>
+      </ul>
+
+      <ul class="habilities">
+        <li *ngFor="let stats of pokemonDetail.stats">
+          <strong class="list_name">{{ stats.stat.name }}</strong>
+          <span class="list_value">{{ stats.base_stat }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

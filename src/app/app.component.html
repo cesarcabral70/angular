@@ -1,14 +1,16 @@
 <div class="container">
   <div class="app">
-    <app-search-list
-      [dataResults]="Pokemons"
-      [pokemonArray]="pokemonDataArray"
-      (dataPokemonEvent)="receivePokemonData($event)"
-    ></app-search-list>
+    <app-search-detail [pokemonDetail]="pokemonDataDetail"></app-search-detail>
 
-    <app-search (dataEvent)="receiveCustomData($event)">
-      <p style="background-color: yellow">share data: {{ msg }}</p>
-    </app-search>
+    <app-search
+      (dataSearchTerm)="receiveSearchTerm($event)"
+      (dataPokemonEvent)="receivePokemonData($event)"
+      (dataDetailPokemonEvent)="receivePokemonDetailData($event)"
+    ></app-search>
+
+    <div *ngIf="searchTerm.length < 1">
+      <app-search-list [pokemonArray]="pokemonDataArray"></app-search-list>
+    </div>
   </div>
 </div>
 

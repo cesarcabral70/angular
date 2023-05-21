@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-search-list',
@@ -6,25 +12,20 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./search-list.component.scss'],
 })
 export class SearchListComponent {
-  @Input() cabralada: string = 'not implemented';
+  @Input() message: string = 'Search for your Pokemon';
+  @Input() pokemonArray: any = [];
 
-  @Input() dataResults: any;
-  @Input() newResults: any;
-  @Input() pokemonArray: any;
-  @Input() data: string = 'not implemented';
   @Output() dataEvent = new EventEmitter<string>();
 
-  constructor() {
-    this.cabralada = 'This is content came from CABRALADA';
-    this.data = 'This is content came from SEARCH LIST';
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.pokemonArray.length > 0) {
+      this.message = 'Suggest of Pokemons';
+    } else {
+      this.message = 'Loading list ...';
+    }
   }
 
-  sendData() {
-    // this.dataEvent.emit(this.cabralada);
-    this.dataEvent.emit(this.data);
-  }
-
-  ngOnInit(): void {
-    this.sendData();
+  copyItem(name: any) {
+    navigator.clipboard.writeText(name);
   }
 }
