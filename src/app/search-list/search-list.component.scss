@@ -1,1 +1,17 @@
-@import "~normalize.css";
+.list {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+}
+.list-item {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  text-align: center;
+  padding: 1rem;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 100%;
+}

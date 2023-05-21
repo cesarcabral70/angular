@@ -1,0 +1,39 @@
+.card {
+  border: 2px solid black;
+  padding: 2rem;
+  background: aqua;
+}
+
+img {
+  max-width: 200px;
+}
+
+.type {
+  margin: 10px 0;
+
+  & > li {
+    display: inline-block;
+
+    &:before {
+      content: ", ";
+    }
+
+    &:first-child {
+      &:before {
+        content: "";
+      }
+    }
+  }
+}
+
+.habilities li {
+  display: flex;
+}
+
+.list_name {
+  width: 50%;
+}
+
+.list_value {
+  width: 50%;
+}
